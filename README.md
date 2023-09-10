@@ -34,8 +34,3 @@ Visit the provided local URL in your browser to access the application.
 ## Credits
 
 This project was inspired by and based on a tutorial from [this YouTube video](https://www.youtube.com/watch?v=xTKoyfCQiiU&list=PLgNJO2hghbmjY-_2OZbm69f9Ga-eIqFui&index=8).
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
