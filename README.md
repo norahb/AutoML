@@ -31,9 +31,6 @@ Create a Web application that allows you to automatically explore your dataset a
 
 Visit the provided local URL in your browser to access the application.
 
-5. Website [link](https://automl-w.streamlit.app/).
-   
-
 ## Credits
 
 This project was based on a tutorial from [this YouTube video](https://www.youtube.com/watch?v=xTKoyfCQiiU&list=PLgNJO2hghbmjY-_2OZbm69f9Ga-eIqFui&index=8).
