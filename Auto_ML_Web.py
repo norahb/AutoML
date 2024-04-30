@@ -1,6 +1,3 @@
-# To run the code
-# streamlit run Auto_ML_Web.py
-
 import streamlit as st
 from operator import index
 import pandas as pd
@@ -76,4 +73,6 @@ if choice == 'Download Model':
         st.download_button('Download the Model', f, 'trained_model.pkl')
 
 
-    
+# To run the code
+# streamlit run Auto_ML_Web.py
+
