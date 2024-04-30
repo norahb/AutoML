@@ -1,6 +1,5 @@
-pycaret
-streamlit
-ydata_profiling
-streamlit-pandas-profiling
-numpy
-pandas
+numpy==1.23.5
+pandas==1.5.3
+streamlit==1.26.0
+ydata-profiling==4.5.1
+pycaret==3.0.4

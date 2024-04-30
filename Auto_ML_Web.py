@@ -1,3 +1,6 @@
+# To run the code
+# streamlit run Auto_ML_Web.py
+
 import streamlit as st
 from operator import index
 import pandas as pd
@@ -6,9 +9,9 @@ import matplotlib as plt
 import plotly.express as px
 
 # Profiling libraries
-import pandas_profiling
 from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
+
 
 #  ML libraries
 from pycaret.regression import setup, compare_models, pull, save_model, load_model
@@ -36,17 +39,47 @@ if choice == 'Analyze Data':
     profile_report = ProfileReport(df, title="Profiling Report")
     st_profile_report(profile_report)
 
+# if choice == 'Train Model':
+#     st.title('Machine Learning Analysis') 
+#     chosen_target = st.selectbox('Choose the Target Column', df.columns)
+#     problem = st.selectbox('Select Your Problem Type', ('Classification', 'Regression'))
+#     if st.button('Train Models'):
+#         if problem == 'Classification':
+#             setup(data=df, target = chosen_target)
+#             best_model = compare_models()
+            
+#         elif problem == 'Regression':
+#             setup(data=df, target = chosen_target, session_id=123)
+#             best_model = compare_models()
+        
+#         # Display the results
+#         compare_df = pull()
+#         st.info('Machine learning models')
+#         st.dataframe(compare_df)
+#         st.write(best_model)
+#         save_model(best_model, 'best_model')
+
+
 if choice == 'Train Model':
     st.title('Machine Learning Analysis') 
-    chosen_target = st.selectbox('Choose the Target Column', df.columns)
     problem = st.selectbox('Select Your Problem Type', ('Classification', 'Regression'))
+    
+    # Generate checkboxes for feature selection
+    st.subheader('Select Features for Training:')
+    selected_features = st.multiselect('Select Features', df.columns)
+    chosen_target = st.selectbox('Choose the Target Column', df.columns)
+
+    # Include target column
+    if chosen_target not in selected_features:
+        selected_features.append(chosen_target)
+    
     if st.button('Train Models'):
         if problem == 'Classification':
-            setup(data=df, target = chosen_target)
+            setup(data=df[selected_features], target=chosen_target)
             best_model = compare_models()
             
         elif problem == 'Regression':
-            setup(data=df, target = chosen_target, session_id=123)
+            setup(data=df[selected_features], target=chosen_target, session_id=123)
             best_model = compare_models()
         
         # Display the results
@@ -56,7 +89,11 @@ if choice == 'Train Model':
         st.write(best_model)
         save_model(best_model, 'best_model')
 
+
 if choice == 'Download Model':
     st.title('Download The Trained Model')
     with open('best_model.pkl','rb') as f:
         st.download_button('Download the Model', f, 'trained_model.pkl')
+
+
+    
