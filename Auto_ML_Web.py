@@ -39,26 +39,6 @@ if choice == 'Analyze Data':
     profile_report = ProfileReport(df, title="Profiling Report")
     st_profile_report(profile_report)
 
-# if choice == 'Train Model':
-#     st.title('Machine Learning Analysis') 
-#     chosen_target = st.selectbox('Choose the Target Column', df.columns)
-#     problem = st.selectbox('Select Your Problem Type', ('Classification', 'Regression'))
-#     if st.button('Train Models'):
-#         if problem == 'Classification':
-#             setup(data=df, target = chosen_target)
-#             best_model = compare_models()
-            
-#         elif problem == 'Regression':
-#             setup(data=df, target = chosen_target, session_id=123)
-#             best_model = compare_models()
-        
-#         # Display the results
-#         compare_df = pull()
-#         st.info('Machine learning models')
-#         st.dataframe(compare_df)
-#         st.write(best_model)
-#         save_model(best_model, 'best_model')
-
 
 if choice == 'Train Model':
     st.title('Machine Learning Analysis') 
